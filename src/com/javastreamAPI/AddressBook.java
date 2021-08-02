@@ -145,6 +145,21 @@ public class AddressBook {
 		return null;
 	}
 
+//	Delete contact using person's name
+
+	private void deletePerson() {
+		sc = new Scanner(System.in);
+		System.out.print("Enter name of person to delete its contact :-> ");
+		String personName = sc.next();
+		Person person = getPerson(personName);
+		if (person == null) {
+			System.out.println(":: sorry No person found for given name ::");
+		} else {
+			list.remove(person);
+		}
+
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcom to Address book program using Stream API");
@@ -161,6 +176,9 @@ public class AddressBook {
 			case 2:
 				addressBook.editContact();
 				break;
+
+			case 3:
+				addressBook.deletePerson();
 			}
 		}
 
