@@ -5,6 +5,7 @@ package com.javastreamAPI;
  * Purpose to add the details of the person using collection
  */
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 
@@ -256,6 +257,15 @@ public class AddressBook {
 	        }
 	        System.out.println("\nTotal number of contacts present in " + countContacts + " is : " + totalCount);
 	    }
+	 
+	 public void sortContactByFirstName()
+	    {
+	        contacts.keySet().forEach((String name) -> {
+	        	contacts.get(name).stream().sorted(Comparator.comparing(Person::getFirstName))
+	                    .collect(Collectors.toList()).forEach(person -> System.out.println(person.toString()));
+	        });
+	    }
+	 
 	public void displayContacts()
     {
         for(Person element : list)
